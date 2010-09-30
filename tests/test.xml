@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<root>
+  <targetOne>REPLACE</targetOne>
+  <div>
+    <targetTwo/>
+  </div>
+  <div id="three">
+    <targetThree>REPLACE</targetThree>
+  </div>
+</root>

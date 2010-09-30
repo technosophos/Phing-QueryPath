@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<root>
+  <targetOne>FOO</targetOne>
+  <div>
+    <targetTwo>FOO2</targetTwo>
+  </div>
+  <div id="three">
+    <targetThree>FOO3</targetThree>
+  </div>
+</root>
