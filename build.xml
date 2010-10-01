@@ -173,7 +173,6 @@ To print this message, do:
         <include name="package.xml"/>
       </fileset>
     </tar>
-    <echo>${packagedir}/PhingQueryPath-${version}.tgz</echo>
     <pirumadd targetdir="${pearchannel}" packagefile="${packagedir}/PhingQueryPath-${version}.tgz"/>
   </target>
   
