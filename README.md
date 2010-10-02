@@ -59,7 +59,7 @@ Possible examples:
 
     $ pear channel-discover pear.querypath.org
     $ pear install querypath/QueryPath
-    $ pear install querypath/Phing-QueryPath
+    $ pear install querypath/PhingQueryPath
 
 **From Source**
 
