@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <project 
   name="Phing-QueryPath" 
-  description="A pure PHP implementation of an RIS parser."
-  default="ftest">
+  description="QueryPath tasks for Phing integration."
+  default="info">
 <!--
 This is the Phing build file for Phing-QueryPath.
 
