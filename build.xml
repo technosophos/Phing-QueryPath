@@ -100,7 +100,7 @@ To print this message, do:
   
   <!-- Build the full package -->
   <target name="fullBuild" description="Full Phing-QueryPath build, including docs."
-    depends="setup">
+    depends="setup,setPearStability">
     <property name="releasedir" value="${builddir}/PhingQueryPath-${version}" override="true"/>
     <delete dir="${releasedir}" />
     
@@ -144,9 +144,9 @@ To print this message, do:
        <option name="summary" value="Phing integration with QueryPath"/>
        <option name="description" value="Provides QueryPath tasks for Phing. Useful for post-processing HTML and XML during builds. http://querypath.org"/>
        <option name="apiversion" value="${version}"/>
-       <option name="apistability" value="stable"/>
+       <option name="apistability" value="${stability}"/>
        <option name="releaseversion" value="${version}"/>
-       <option name="releasestability" value="stable"/>
+       <option name="releasestability" value="${stability}"/>
        <option name="license" value="MIT"/>
        <option name="phpdep" value="5.0.0"/>
        <option name="pearinstallerdep" value="1.4.6"/>
@@ -161,6 +161,15 @@ To print this message, do:
          <element key="email" value="matt@aleph-null.tv"/>
          <element key="role" value="lead"/>
         </element>
+       </mapping>
+       <mapping name="deps">
+         <element>
+           <element key="channel" value="pear.querypath.org"/>
+           <element key="name" value="querypath/QueryPath"/>
+           <element key="version" value="2.1.0beta1"/>
+           <element key="max" value="2.1.99"/>
+           <element key="recommended" value="2.1.0"/>
+         </element>
        </mapping>
     </pearpkg2>
     
@@ -203,4 +212,26 @@ To print this message, do:
     </qpreplace>
   </target>
   
+  <target name="setPearStability" depends="setup">
+    <property name="stability">stable</property>
+    <if>
+      <contains string="${version}" substring="dev"/>
+      <then>
+        <property name="stability" override="true">snapshot</property>
+      </then>
+      <elseif>
+        <contains string="${version}" substring="alpha"/>
+        <then>
+          <property name="stability" override="true">alpha</property>
+        </then>
+      </elseif>
+      <elseif>
+        <contains string="${version}" substring="beta"/>
+        <then>
+          <property name="stability" override="true">beta</property>
+        </then>
+      </elseif>
+    </if>
+    <echo>${stability}</echo>
+  </target>
 </project>
